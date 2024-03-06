@@ -1,15 +1,9 @@
 <?php
-
+    require_once('../model/userModel.php');
     if(!isset($_COOKIE['flag'])){
         header('location: login.php');
     }
-
-    $users = [
-        ['id'=>1, 'name'=> 'alamin', 'email'=>'alamin@aiub.edu', 'password'=>'12'],
-        ['id'=>2, 'name'=> 'abc', 'email'=>'alamin@aiub.edu', 'password'=>'23'],
-        ['id'=>3, 'name'=> 'xyz', 'email'=>'alamin@aiub.edu', 'password'=>'123'],
-        ['id'=>4, 'name'=> 'PQR', 'email'=>'alamin@aiub.edu', 'password'=>'1255']
-    ];
+    $users = getAllUser();
 ?>
 
 <!DOCTYPE html>
