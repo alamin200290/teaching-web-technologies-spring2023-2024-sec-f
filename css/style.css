@@ -1,0 +1,29 @@
+h1{
+    color: yellow;
+    border: 1px solid black;
+}
+
+#d1{
+    width: 300px;
+    height: 200px;
+    background-color: green;
+    /* margin: 10px 20px; */
+    /* padding: 10px 20px 30px 40px; */
+    position: relative;
+    left: 400px;
+    top: 50px;
+}
+#d2{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    position: absolute;
+    top: 50px;
+    left: 100px;
+    border-radius: 50%;
+}
+.c1{
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+}
