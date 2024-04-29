@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JSON Example</title>
+</head>
+<body>
+    
+        <h1>JSON Example</h1>
+
+        <input type="text" name="username" id="username" onkeyup="username()" />
+        <input type="button" name="click" value="click" onclick="ajax()" />
+        <input type="button" name="test" value="test" onclick="alert('test')" />
+
+        <script>
+            //name = 'alamin';
+            //var name = 'alamin';
+            // let name = 'alamin';
+            // let cgpa =3.6;
+            // let email = "alamin@aiub.edu";
+            // let std = [1, 'alamin', 3.5, 'alamin@aiub.edu'];
+
+            // function sum(a, b){
+            //     return a+b;
+            // }
+            // sum();
+
+            // let sum = function (a, b){
+            //     return a+b;
+            // }
+            // sum()
+            // let sum= (a, b)=>a+b;
+            
+            // for(let a=0;a<10; a++ ){
+
+            // }
+
+            // if(){
+
+            // }else{
+
+            // }
+            // ===
+
+            //alert('test');
+            //console.log('test');
+            //document.write('Test from JS');
+            
+            function abc(){
+                let obj = document.getElementsByTagName('h1')[0];
+                obj.innerHTML = "TEST EXample";
+            }
+
+            function username(){
+                let username = document.getElementById('username').value;
+                let obj = document.getElementsByTagName('h1')[0];
+
+                if(username == ""){
+                    obj.innerHTML = "Null data found";
+                    obj.style.color = 'red';
+                }else{
+                    obj.style.color = 'black';
+                    document.getElementsByTagName('h1')[0].innerHTML = username;
+                }
+                
+            }
+
+            function ajax(){
+                let username = document.getElementById('username').value;
+                let password = "abc123";
+                let email = "alamin@aiub.edu";
+
+                let user = {
+                    'username' : username,
+                    'password' : password,
+                    'email'    : email
+                }
+
+                let data = JSON.stringify(user);
+
+                let xhttp = new XMLHttpRequest();
+                //xhttp.open('GET', 'abc.php?username='+username, true);
+                xhttp.open('POST', 'abc.php', true);
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp.send('user='+data);
+
+                xhttp.onreadystatechange = function(){
+                    if(this.readyState == 4 && this.status == 200){
+                       //alert(this.responseText);
+                        let user = JSON.parse(this.responseText);
+                        document.getElementsByTagName('h1')[0].innerHTML = user.username;
+                    }
+                }
+            }
+        </script>
+</body>
+</html>
